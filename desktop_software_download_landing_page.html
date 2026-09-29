@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novaflow - Modern Masaüstü Uygulaması</title>
+  <!-- Favicon placeholder -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom utility styles -->
+  <style>
+    .glow-effect {
+      background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background-color: rgba(156, 163, 175, 0.5);
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen selection:bg-brand-500 selection:text-white">
+
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+            <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+          </div>
+          <span class="font-bold text-lg tracking-tight text-white group-hover:text-brand-300 transition-colors">
+            Novaflow<span class="text-brand-500">.exe</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <a href="#features" class="hover:text-white transition-colors">Özellikler</a>
+          <a href="#requirements" class="hover:text-white transition-colors">Gereksinimler</a>
+          <a href="#changelog" class="hover:text-white transition-colors">Sürüm Notları</a>
+          <a href="#faq" class="hover:text-white transition-colors">SSS</a>
+        </div>
+
+        <!-- Right Action Button -->
+        <div class="flex items-center gap-3">
+          <a href="#download" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-brand-600 hover:bg-brand-500 text-white shadow-md shadow-brand-600/30 transition-all active:scale-95">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span>Hemen İndir</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="relative pt-20 pb-16 lg:pt-28 lg:pb-24 overflow-hidden glow-effect border-b border-slate-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <!-- Sürüm Etiketi -->
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-slate-300 text-xs font-medium mb-6 shadow-sm">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-mono text-brand-300 font-semibold">v1.2.0 Yayında</span>
+        <span class="text-slate-500">•</span>
+        <span>Windows 10 / 11 Destekli</span>
+      </div>
+
+      <!-- Ana Başlık & Açıklama -->
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto">
+        İş akışınızı hızlandıran <br class="hidden sm:inline" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-sky-400">
+          yeni nesil masaüstü aracı.
+        </span>
+      </h1>
+      
+      <p class="mt-6 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        Karmaşık süreçleri saniyeler içinde basitleştirin. Arka planda kaynak tüketmeyen, yerel performans odaklı ve tamamen bağımsız bir Windows yazılımı.
+      </p>
+
+      <!-- İndirme & Aksiyon Alanı -->
+      <div id="download" class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <!-- ANA İNDİRME BUTONU -->
+        <!-- NOT: 'href' kısmına gerçek public repo release linkinizi veya CDN bağlantınızı girin -->
+        <a id="downloadBtn" 
+           href="https://github.com/KULLANICI_ADINIZ/PUBLIC_REPO_ADINIZ/releases/latest/download/Novaflow-Setup-v1.2.0.exe" 
+           class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold text-base shadow-xl shadow-brand-600/30 flex items-center justify-center gap-3 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+          <i data-lucide="download" class="w-5 h-5"></i>
+          <span class="text-left">
+            <span class="block text-xs uppercase tracking-wider font-mono text-brand-200">Doğrudan Kurulum</span>
+            <span class="text-base font-bold">Windows için İndir (.exe)</span>
+          </span>
+        </a>
+
+        <!-- İkincil Buton -->
+        <a href="#changelog" class="w-full sm:w-auto px-6 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 font-semibold text-sm flex items-center justify-center gap-2 transition-colors">
+          <i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i>
+          <span>Değişiklik Günlüğü</span>
+        </a>
+      </div>
+
+      <!-- Dosya Bilgileri Özeti -->
+      <div class="mt-4 flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-500">
+        <span class="flex items-center gap-1.5"><i data-lucide="hard-drive" class="w-3.5 h-3.5"></i> Boyut: ~48.2 MB</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="cpu" class="w-3.5 h-3.5"></i> x64 / x86 Uyumlu</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-500"></i> Temiz &amp; Güvenli</span>
+      </div>
+
+      <div class="mt-14 max-w-4xl mx-auto rounded-2xl border border-slate-800 bg-slate-900/60 p-2 shadow-2xl shadow-indigo-950/40">
+        <!-- Windows Pencere Üst Çubuğu -->
+        <div class="flex items-center justify-between px-3 py-2 border-b border-slate-800/80 bg-slate-950/80 rounded-t-xl text-xs text-slate-400">
+          <div class="flex items-center gap-2">
+            <i data-lucide="layers" class="w-3.5 h-3.5 text-brand-400"></i>
+            <span class="font-medium text-slate-300">Novaflow Pro - v1.2.0</span>
+          </div>
+          <!-- Windows Simge Durumu Butonları -->
+          <div class="flex items-center gap-3">
+            <span class="w-2.5 h-0.5 bg-slate-600 block"></span>
+            <span class="w-2.5 h-2.5 border border-slate-600 block"></span>
+            <span class="text-slate-500 font-mono leading-none">&times;</span>
+          </div>
+        </div>
+
+        <!-- Mockup İçeriği -->
+        <div class="relative bg-gradient-to-br from-slate-950 to-slate-900 rounded-b-xl p-8 sm:p-12 text-center overflow-hidden">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+            <div class="bg-slate-900/80 border border-slate-800/80 rounded-xl p-4">
+              <span class="text-xs text-slate-500 uppercase tracking-wider font-mono">CPU Kullanımı</span>
+              <p class="text-2xl font-bold text-white mt-1">%0.8</p>
+              <div class="w-full bg-slate-800 h-1.5 rounded-full mt-3 overflow-hidden">
+                <div class="bg-emerald-500 h-full w-[12%]"></div>
+              </div>
+            </div>
+            <div class="bg-slate-900/80 border border-slate-800/80 rounded-xl p-4">
+              <span class="text-xs text-slate-500 uppercase tracking-wider font-mono">RAM Bellek</span>
+              <p class="text-2xl font-bold text-white mt-1">42.5 MB</p>
+              <div class="w-full bg-slate-800 h-1.5 rounded-full mt-3 overflow-hidden">
+                <div class="bg-brand-500 h-full w-[24%]"></div>
+              </div>
+            </div>
+            <div class="bg-slate-900/80 border border-slate-800/80 rounded-xl p-4">
+              <span class="text-xs text-slate-500 uppercase tracking-wider font-mono">Durum</span>
+              <p class="text-2xl font-bold text-emerald-400 mt-1">Aktif &amp; Hazır</p>
+              <div class="w-full bg-slate-800 h-1.5 rounded-full mt-3 overflow-hidden">
+                <div class="bg-sky-500 h-full w-[100%]"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 border border-dashed border-slate-800 rounded-xl p-8 flex flex-col items-center justify-center">
+            <div class="w-12 h-12 rounded-full bg-brand-500/10 flex items-center justify-center text-brand-400 mb-3">
+              <i data-lucide="sparkles" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-semibold text-white">Yüksek Verimlilik, Sıfır Gecikme</h3>
+            <p class="text-xs text-slate-400 max-w-sm mt-1">
+              Doğrudan Windows çekirdeği ile uyumlu çalışan optimize edilmiş altyapı.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <section id="features" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-xs font-mono uppercase tracking-wider text-brand-400 font-semibold">Öne Çıkan Özellikler</h2>
+      <p class="text-3xl font-bold text-white mt-2">Neden bu uygulamayı tercih etmelisiniz?</p>
+      <p class="text-slate-400 mt-3 text-sm">Gereksiz karmaşıklıktan arındırılmış, hafif ve hedefe odaklı kullanıcı deneyimi.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Feature 1 -->
+      <div class="rounded-2xl p-6 bg-slate-900/40 border border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/70 transition-all group">
+        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+          <i data-lucide="zap" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-lg font-semibold text-white mb-2">Işık Hızında Başlatma</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">
+          Uygulama saniyeler içinde açılır. Şişirilmiş kütüphaneler yerine yerel derlenmiş optimize kod yapısı kullanılır.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="rounded-2xl p-6 bg-slate-900/40 border border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/70 transition-all group">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+          <i data-lucide="lock" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-lg font-semibold text-white mb-2">Yerel Veri &amp; Gizlilik</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">
+          Tüm verileriniz kendi bilgisayarınızda saklanır. İzinsiz telemetri veya harici sunuculara veri aktarımı yapılmaz.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="rounded-2xl p-6 bg-slate-900/40 border border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/70 transition-all group">
+        <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+          <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-lg font-semibold text-white mb-2">Sorunsuz Kurulum</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">
+          Tek tıklamayla kurulan bağımsız `.exe`. İhtiyaç duyduğunuz tüm çalışma zamanı bileşenleri paket içerisindedir.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="requirements" class="py-16 bg-slate-900/30 border-y border-slate-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl font-bold text-white">Sistem Gereksinimleri</h2>
+        <p class="text-slate-400 text-sm mt-1">Uygulamanın sorunsuz çalışması için tavsiye edilen donanım ve yazılım özellikleri.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <span class="text-xs font-mono text-brand-400 block mb-1">İşletim Sistemi</span>
+          <span class="text-sm font-semibold text-white">Windows 10 / 11</span>
+          <span class="text-xs text-slate-500 block mt-1">64-bit sürümleri</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <span class="text-xs font-mono text-brand-400 block mb-1">RAM Bellek</span>
+          <span class="text-sm font-semibold text-white">En az 2 GB</span>
+          <span class="text-xs text-slate-500 block mt-1">4 GB önerilir</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <span class="text-xs font-mono text-brand-400 block mb-1">Depolama Alanı</span>
+          <span class="text-sm font-semibold text-white">150 MB Boş Alan</span>
+          <span class="text-xs text-slate-500 block mt-1">SSD tavsiye edilir</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <span class="text-xs font-mono text-brand-400 block mb-1">Bağımlılıklar</span>
+          <span class="text-sm font-semibold text-white">Ek Yazılım Gerekmez</span>
+          <span class="text-xs text-slate-500 block mt-1">Standalone binary</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="changelog" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-xs font-mono uppercase tracking-wider text-brand-400 font-semibold">Geliştirme Geçmişi</h2>
+      <p class="text-3xl font-bold text-white mt-2">Sürüm Notları (Changelog)</p>
+    </div>
+
+    <div class="space-y-6">
+      <!-- Current Release Card -->
+      <div class="rounded-2xl bg-slate-900/60 border border-brand-500/30 p-6 relative">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-1 rounded-md bg-brand-500/20 text-brand-300 font-mono text-xs font-bold border border-brand-500/30">v1.2.0 (Güncel)</span>
+            <span class="text-xs text-slate-400 font-mono">Yayınlanma: Eylül 2026</span>
+          </div>
+          <span class="text-xs font-mono text-emerald-400 flex items-center gap-1">
+            <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Kararlı Sürüm
+          </span>
+        </div>
+
+        <h4 class="text-sm font-semibold text-white mb-2">Yenilikler &amp; İyileştirmeler:</h4>
+        <ul class="text-sm text-slate-300 space-y-2 list-inside list-disc">
+          <li>Windows 11 yeni pencere kenarlıkları ve karanlık tema desteği eklendi.</li>
+          <li>Bellek tüketimi %30 oranında optimize edildi.</li>
+          <li>Arka plan işlemleri için çoklu çekirdek desteği güçlendirildi.</li>
+          <li>Bazı Windows 10 sürümlerinde nadir görülen başlangıç hatası giderildi.</li>
+        </ul>
+
+        <!-- SHA-256 Checksum -->
+        <div class="mt-4 pt-3 border-t border-slate-800/60 text-xs font-mono text-slate-500 flex flex-wrap items-center justify-between gap-2">
+          <span>SHA-256 Doğrulama Kodu:</span>
+          <span class="bg-slate-950 px-2 py-1 rounded border border-slate-800 text-slate-400 select-all">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span>
+        </div>
+      </div>
+
+      <!-- Previous Release Card -->
+      <div class="rounded-2xl bg-slate-900/20 border border-slate-800/60 p-6 opacity-75 hover:opacity-100 transition-opacity">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/60 pb-3 mb-3">
+          <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-400 font-mono text-xs">v1.0.0 (İlk Sürüm)</span>
+          <span class="text-xs text-slate-500 font-mono">Ağustos 2026</span>
+        </div>
+        <ul class="text-sm text-slate-400 space-y-1.5 list-inside list-disc">
+          <li>Temel özelliklerle genel kullanıma açıldı.</li>
+          <li>Windows x64 kurulum paketi hazırlandı.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="py-16 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-xs font-mono uppercase tracking-wider text-brand-400 font-semibold">Destek</h2>
+      <p class="text-3xl font-bold text-white mt-2">Sıkça Sorulan Sorular</p>
+    </div>
+
+    <div class="space-y-4">
+      <!-- FAQ 1 -->
+      <div class="faq-item rounded-xl border border-slate-800 bg-slate-900/40 overflow-hidden">
+        <button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between text-white font-medium text-sm hover:text-brand-300 transition-colors">
+          <span>Windows "SmartScreen kişisel bilgisayarınızı korudu" uyarısı verirse ne yapmalıyım?</span>
+          <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-400 border-t border-slate-800/40 pt-3 leading-relaxed">
+          Yeni yayınlanan ve henüz yüksek indirme sayısına ulaşmamış bağımsız yazılımlarda Windows bu uyarıyı verebilir. 
+          Kuruluma devam etmek için ekrandaki <strong>"Ek bilgi"</strong> (More info) bağlantısına tıklayıp ardından <strong>"Yine de çalıştır"</strong> (Run anyway) butonuna basmanız yeterlidir. Uygulamamız tamamen temizdir.
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item rounded-xl border border-slate-800 bg-slate-900/40 overflow-hidden">
+        <button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between text-white font-medium text-sm hover:text-brand-300 transition-colors">
+          <span>Uygulama internet bağlantısı gerektirir mi?</span>
+          <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-400 border-t border-slate-800/40 pt-3 leading-relaxed">
+          Hayır. Temel fonksiyonların tamamı yerel olarak bilgisayarınızda çalışır. Sadece isteğe bağlı otomatik güncelleme kontrolleri için minimal bir ağ bağlantısı kullanılır.
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item rounded-xl border border-slate-800 bg-slate-900/40 overflow-hidden">
+        <button class="faq-toggle w-full px-5 py-4 text-left flex items-center justify-between text-white font-medium text-sm hover:text-brand-300 transition-colors">
+          <span>Nasıl güncel kalabilirim?</span>
+          <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-400 transition-transform duration-200"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-4 text-xs sm:text-sm text-slate-400 border-t border-slate-800/40 pt-3 leading-relaxed">
+          Yeni bir sürüm yayınlandığında bu sayfadan yeni `.exe` dosyasını indirerek üzerine kurabilirsiniz. Önceki ayarlarınız ve verileriniz kaybolmaz.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-900 bg-slate-950 py-12 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-md bg-brand-600/30 flex items-center justify-center text-brand-400">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+        </div>
+        <span>&copy; 2026 Novaflow. Tüm hakları saklıdır.</span>
+      </div>
+
+      <!-- Alt Bağlantılar -->
+      <div class="flex items-center gap-6">
+        <a href="#download" class="hover:text-slate-300 transition-colors">İndirme Bağlantısı</a>
+        <a href="#changelog" class="hover:text-slate-300 transition-colors">Sürümler</a>
+        <a href="mailto:destek@ornek.com" class="hover:text-slate-300 transition-colors">İletişim &amp; Geri Bildirim</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // FAQ Accordion Toggle Logic
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('.faq-icon');
+        const isOpen = !content.classList.contains('hidden');
+
+        // Close all other FAQs
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
+
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          icon.classList.add('rotate-180');
+        }
+      });
+    });
+
+    // Optional click feedback for the main download button
+    const downloadBtn = document.getElementById('downloadBtn');
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', (e) => {
+        // Eğer kullanıcı henüz linki değiştirmediyse rehberlik mesajı
+        if (downloadBtn.getAttribute('href').includes('KULLANICI_ADINIZ')) {
+          e.preventDefault();
+          const feedback = document.createElement('div');
+          feedback.className = 'fixed bottom-6 right-6 z-50 bg-slate-900 border border-brand-500/40 text-slate-200 px-5 py-4 rounded-xl shadow-2xl flex items-center gap-3 text-xs';
+          feedback.innerHTML = `
+            <i data-lucide="info" class="w-5 h-5 text-brand-400 shrink-0"></i>
+            <div>
+              <p class="font-bold text-white">İndirme Bağlantısı Uyarısı</p>
+              <p class="text-slate-400 mt-0.5">Lütfen HTML içindeki <code>#downloadBtn</code> href linkini gerçek indirme URL'niz ile güncelleyin.</p>
+            </div>
+          `;
+          document.body.appendChild(feedback);
+          lucide.createIcons();
+          setTimeout(() => feedback.remove(), 5000);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
