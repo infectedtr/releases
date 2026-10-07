@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zübeyde Hanım Çocuk Kulübü Aidat Takip Sistemi — Resmi İndirme ve Tanıtım</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2310b981'><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/></svg>">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            aidat: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glow-emerald {
+      background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.18) 0%, transparent 70%);
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen selection:bg-emerald-500 selection:text-white">
+
+  <!-- ÜST DUYURU VE PORTAL GEÇİŞ ÇUBUĞU -->
+  <div class="bg-gradient-to-r from-emerald-700 via-teal-700 to-cyan-700 px-4 py-2 text-xs font-semibold text-white shadow-lg">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="px-2 py-0.5 rounded-full bg-white/20 text-white font-extrabold uppercase text-[10px] tracking-wider">
+          ANAOKULU &amp; KULÜP
+        </span>
+        <span>Çocuk Kulübü Aidat Takip Sistemi <strong>v1.8.0 Yeni Sürüm</strong> Yayında!</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-emerald-200 hidden md:inline">Diğer Yazılımlarımız:</span>
+        <a href="disiplin.html" class="px-2.5 py-1 rounded-lg bg-white/15 hover:bg-white/25 transition-colors text-white font-bold text-[11px] flex items-center gap-1">
+          <span>🎓</span> Disiplin Asistanı
+        </a>
+        <a href="sorumluluk.html" class="px-2.5 py-1 rounded-lg bg-white/15 hover:bg-white/25 transition-colors text-white font-bold text-[11px] flex items-center gap-1">
+          <span>📝</span> Sorumluluk Sınavları
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANA NAVİGASYON -->
+  <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/85 border-b border-slate-800/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-emerald-500/25 group-hover:scale-105 transition-transform text-white font-extrabold text-lg">
+            🏢
+          </div>
+          <div>
+            <span class="font-extrabold text-base tracking-tight text-white group-hover:text-emerald-300 transition-colors flex items-center gap-1.5">
+              Aidat Takip Sistemi<span class="text-emerald-400 font-mono text-xs">.exe</span>
+            </span>
+            <span class="text-[10px] text-slate-400 block -mt-0.5 font-medium">Zübeyde Hanım Çocuk Kulübü Muhasebe &amp; Tahsilat</span>
+          </div>
+        </a>
+
+        <!-- Menü Linkleri -->
+        <div class="hidden lg:flex items-center gap-6 text-xs font-semibold text-slate-300">
+          <a href="#nasil-calisir" class="hover:text-white transition-colors">Nasıl Çalışır?</a>
+          <a href="#ozellikler" class="hover:text-white transition-colors">Makbuz &amp; Mali Tablolar</a>
+          <a href="#avantajlar" class="hover:text-white transition-colors">Kuruma Faydaları</a>
+          <a href="#diger-yazilimlar" class="text-amber-400 hover:text-amber-300 transition-colors font-bold flex items-center gap-1">
+            <span>✨</span> Diğer Programlarımız
+          </a>
+          <a href="#sss" class="hover:text-white transition-colors">SSS</a>
+        </div>
+
+        <!-- İndir Butonu -->
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 transition-all">
+            <span>🏛️</span> Tüm Programlar
+          </a>
+          <a href="#indir" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/30 transition-all active:scale-95">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span>Hemen İndir (.EXE)</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="relative pt-16 pb-16 lg:pt-20 lg:pb-20 overflow-hidden glow-emerald border-b border-slate-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <!-- Rozet -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/30 text-slate-300 text-xs font-medium mb-6 shadow-sm">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-mono text-emerald-300 font-bold">Resmi Makbuz &amp; Excel Uyumlu</span>
+        <span class="text-slate-500">•</span>
+        <span>Windows 10 / 11</span>
+      </div>
+
+      <!-- Başlık -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto">
+        Kulüp aidatlarını ve borçlu velileri<br class="hidden sm:inline" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">
+          tek tıkla yönetin, Excel karmaşasını bitirin.
+        </span>
+      </h1>
+      
+      <p class="mt-6 text-sm sm:text-base lg:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+        Anaokulları ve çocuk kulüpleri için özel geliştirilmiş muhasebe ve öğrenci aidat yönetim masası. 
+        Aylık tahakkuklar, resmi tahsilat makbuzları, borçlu veli listeleri ve gelir-gider hesapları <strong>tek tıkla elinizin altında</strong>.
+      </p>
+
+      <!-- İndirme Butonu -->
+      <div id="indir" class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://github.com/infectedtr/cocukkulubu/releases/download/v1.8.0/Aidat_Takip_Sistemi_Setup_1.8.0.exe" 
+           class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white font-semibold text-base shadow-xl shadow-emerald-600/30 flex items-center justify-center gap-3 transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+          <i data-lucide="download" class="w-6 h-6"></i>
+          <span class="text-left">
+            <span class="block text-xs uppercase tracking-wider font-mono text-emerald-200">Resmi Kurulum Paketi</span>
+            <span class="text-base font-extrabold">Aidat Takip İndir (.exe)</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Bilgi İpuçları -->
+      <div class="mt-5 flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-400">
+        <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i> %100 Yerel &amp; Güvenli Kayıt</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="printer" class="w-4 h-4 text-teal-400"></i> Resmi A4 Tahsilat Makbuzu</span>
+        <span>•</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="file-spreadsheet" class="w-4 h-4 text-cyan-400"></i> Tek Tıkla Excel Raporu</span>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 3 ADIMDA NASIL KULLANILIR? (TEKNİK DETAYSIZ, PRATİK ANLATIM) -->
+  <section id="nasil-calisir" class="py-16 bg-slate-900/60 border-b border-slate-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">3 Adımda Pratik Aidat Yönetimi</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-2">Muhasebeci olmanıza gerek yok; birkaç saniyede tüm dökümleri alın.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Adım 1 -->
+        <div class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-emerald-500/50 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl font-extrabold mb-4">
+            1
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">Öğrenci ve Sınıfları Ekleyin</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Kulübe veya anaokuluna kayıtlı çocukların adını, sınıfını ve veli iletişim numarasını sisteme kaydedin. Dilerseniz Excel'den toplu içe aktarın.
+          </p>
+        </div>
+
+        <!-- Adım 2 -->
+        <div class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-emerald-500/50 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-teal-500/15 border border-teal-500/30 text-teal-400 flex items-center justify-center text-xl font-extrabold mb-4">
+            2
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">Ödemeleri Tek Tuşla İşleyin</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Veli ödeme yaptığında tutarı girin. Sistem anında kalan borcu hesaplar ve dilerseniz saniyeler içinde resmi tahsilat makbuzunu yazdırır.
+          </p>
+        </div>
+
+        <!-- Adım 3 -->
+        <div class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-emerald-500/50 transition-all">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-xl font-extrabold mb-4">
+            3
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">Gelir-Gider &amp; Borçlu Raporu Alın</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Ay sonunda kulüp komisyonuna sunulacak resmi gelir-gider tablosunu, kasa durumunu ve aidatı geciken velilerin listesini tek tıkla yazdırın.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ÖNE ÇIKAN ÖZELLİKLER -->
+  <section id="ozellikler" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-emerald-400 text-xs font-bold uppercase tracking-wider">KURUMSAL KOLAYLIKLAR</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Eksiksiz Kulüp Muhasebe Denetimi</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="glass-card rounded-2xl p-5">
+        <div class="text-emerald-400 text-2xl mb-3">🧾</div>
+        <h4 class="font-bold text-white text-sm mb-1.5">Resmi Tahsilat Makbuzu</h4>
+        <p class="text-xs text-slate-300">Velilere verilen, kulüp mührü ve imza alanları hazır profesyonel A4 makbuz baskısı.</p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-5">
+        <div class="text-teal-400 text-2xl mb-3">🔔</div>
+        <h4 class="font-bold text-white text-sm mb-1.5">Borçlu Veli Takibi</h4>
+        <p class="text-xs text-slate-300">Ödemesi geciken öğrencileri renkli uyarılarla görün, veli listesini anında yazdırın.</p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-5">
+        <div class="text-cyan-400 text-2xl mb-3">💰</div>
+        <h4 class="font-bold text-white text-sm mb-1.5">Kasa &amp; Harcama Kaydı</h4>
+        <p class="text-xs text-slate-300">Kulüp için yapılan kırtasiye, beslenme ve etkinlik harcamalarını kaydedip net kasayı görün.</p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-5">
+        <div class="text-amber-400 text-2xl mb-3">📊</div>
+        <h4 class="font-bold text-white text-sm mb-1.5">Excel Çıktısı</h4>
+        <p class="text-xs text-slate-300">Milli Eğitim teftişleri ve okul aile birliği denetimleri için Excel formatında resmi döküm.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LİSANSLAMA VE KULLANIM BİLGİSİ (ÜZERİ ÖRTÜK, KURUMSAL ANLATIM) -->
+  <section class="py-14 bg-gradient-to-br from-emerald-950/40 via-slate-950 to-teal-950/30 border-y border-slate-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-bold mb-4">
+        <span>🔑</span> Kurumsal Kullanım ve Yetkilendirme
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Kurumunuza Özel Güvenli Aktivasyon</h2>
+      <p class="mt-4 text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl mx-auto">
+        Yazılımı hemen indirip deneme sürümüyle tüm modülleri kurumunuzda test edebilirsiniz. 
+        Kulübünüz veya okulunuz adına tam yetkili, sınırsız öğrenci ve makbuz kaydı sağlamak için 
+        tek bir kurumsal aktivasyon anahtarı yeterlidir.
+      </p>
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <span class="px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-xs font-bold text-slate-200">
+          ✓ Mali Kayıtlarınız Asla Silinmez
+        </span>
+        <span class="px-4 py-2 rounded-xl bg-slate-900/90 border border-slate-800 text-xs font-bold text-slate-200">
+          ✓ İnternetsiz Ortamda Dahi Kesintisiz Çalışma
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DİĞER PROGRAMLARIMIZIN REKLAMI (CROSS-PROMOTION) -->
+  <section id="diger-yazilimlar" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="text-amber-400 text-xs font-bold uppercase tracking-wider">OKULUNUZ İÇİN DİĞER ÇÖZÜMLERİMİZ</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Eğitim Yönetiminde Hayatı Kolaylaştıran Sistemler</h2>
+      <p class="text-xs sm:text-sm text-slate-400 mt-2">Okulunuzun diğer idari ihtiyaçları için geliştirdiğimiz yazılımları inceleyin.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Reklam Kartı 1: Disiplin Asistanı -->
+      <div class="glass-card rounded-2xl p-6 border-l-4 border-l-indigo-500 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-2xl">🎓</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-[10px] font-extrabold">ÖĞRENCİ İŞLERİ İÇİN</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">MEB Öğrenci Disiplin Asistanı</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            İfade alma, savunma isteme, kurul kararı ve veli bildirim yazılarını mevzuata uygun maddelerle saniyeler içinde hazırlayın. 3 tıkla resmi tutanaklar baskıya hazır.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-slate-400">v1.1.0 • Windows Uyumlu</span>
+          <a href="disiplin.html" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition-colors flex items-center gap-1.5">
+            <span>İncele &amp; İndir</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Reklam Kartı 2: Sorumluluk Sınavları -->
+      <div class="glass-card rounded-2xl p-6 border-l-4 border-l-rose-500 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-2xl">📝</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 text-[10px] font-extrabold">SINAV DÖNEMLERİ İÇİN</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">MEB Sorumluluk Sınavları Sistemi</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            e-Okul Excel listelerinden saniyeler içinde sınav programı çıkarın, öğretmen komisyon ve gözetmenlerini sıfır çakışmayla dağıtın, 9 resmi MEB evrakını tek tıkla yazdırın.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+          <span class="text-[11px] font-mono text-slate-400">v1.1.0 • Windows Uyumlu</span>
+          <a href="sorumluluk.html" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs transition-colors flex items-center gap-1.5">
+            <span>İncele &amp; İndir</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SSS (SIKÇA SORULAN SORULAR) -->
+  <section id="sss" class="py-16 bg-slate-900/50 border-t border-slate-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-extrabold text-white text-center mb-8">Sıkça Sorulan Sorular</h2>
+      
+      <div class="space-y-4">
+        <div class="glass-card rounded-2xl p-5">
+          <h4 class="font-bold text-white text-sm mb-1.5">Geçmiş aylara ait aidat kayıtlarını görebilir miyiz?</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">Evet. Sistem tüm eğitim-öğretim yılı boyunca yapılan tahsilatları ve kalan borçları saklar. İstediğiniz ayın dökümünü tek tıkla alabilirsiniz.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5">
+          <h4 class="font-bold text-white text-sm mb-1.5">Yazıcıdan çıktılar standart A4 formatında mı basılır?</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">Evet. Hem tekli tahsilat makbuzları hem de aylık sınıf/okul mali çizelgeleri doğrudan herhangi bir standart yazıcıdan çıktı alabileceğiniz biçimde tasarlanmıştır.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5">
+          <h4 class="font-bold text-white text-sm mb-1.5">Programın kullanımı zor mudur?</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">Kesinlikle hayır. Program son derece sade, anlaşılır ve Türkçe olarak geliştirilmiştir. Birkaç dakika içinde rahatlıkla öğrenip kullanmaya başlayabilirsiniz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 border-t border-slate-900 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-emerald-400 font-bold">MEB Dijital Okul Çözümleri</span>
+        <span>•</span>
+        <span>Milli Eğitim Bakanlığı Standartlarında Yerel Yazılımlar</span>
+      </div>
+      <div>
+        <a href="index.html" class="text-slate-400 hover:text-white transition-colors">Tüm Programlar Portalı</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
